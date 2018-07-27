@@ -15,8 +15,13 @@ class About extends Component {
     </p>
         
         <br />
-        
+        <p> If you would like to see your score:
+           <NavLink to={"/score"}>  
+             Click Here 
+            </NavLink>
+        </p>
     </center>
+    
       </div>
       
     );
