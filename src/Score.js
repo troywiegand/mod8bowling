@@ -11,7 +11,7 @@ class Score extends Component {
                 f4t1:0, f4t2:0, f5t1:0, f5t2:0, f6t1:0, f6t2:0,
                 f7t1:0, f7t2:0, f8t1:0, f8t2:0, f9t1:0, f9t2:0,
                 f10t1:0, f10t2:0, f10t3:0,
-            }
+            },
                 }
  }
 
@@ -24,10 +24,43 @@ class Score extends Component {
  }
 
  updateScore = () =>{
+     
      let score = 0
+     let currentFrame=1
 Object.keys(this.state.frames).map((f)=>{
+    const throwScore =this.state.frames[f]%8
+   
+    let nextThrowName=''
+if(currentFrame<10){
+    nextThrowName=f.slice(0,3)+'2'
+}
+else {nextThrowName=f.slice(0,4)+'2'}
+
+
+    const nextThrowScore = this.state.frames[nextThrowName]%8
+    const nextFrame=(currentFrame+1).toString()
+
+if(f.slice(3).includes('1')){
+    const frameScore =(this.state.frames[f]+this.state.frames[nextThrowName])%8
+    score+=frameScore
+
+    if(throwScore===7 && nextThrowScore===0 && currentFrame<10){
+     
+        const nextFrameScore=(this.state.frames['f'+nextFrame+'t1']+this.state.frames['f'+nextFrame+'t2'])%8
+        score+=(2*nextFrameScore)
+    }
+
+if(throwScore!==7 && (throwScore+nextThrowScore)===7 && currentFrame<10){
+    const nextThrowScore=this.state.frames['f'+nextFrame+'t1']%8
+    score+=nextThrowScore
+}
     
-    score+=this.state.frames[f]
+  
+currentFrame++
+}
+
+
+    
     
 })
 this.setState({score})
