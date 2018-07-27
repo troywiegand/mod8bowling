@@ -161,9 +161,9 @@ class Score extends Component {
                             value={this.state.frames.name} />
                     </form>
 
-                    <p className="score">
+                    <h2 className="score">
                         {this.state.score}
-                    </p>
+                    </h2>
 
                     <br />
 
