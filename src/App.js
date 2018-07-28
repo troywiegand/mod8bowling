@@ -11,17 +11,17 @@ render(){
         <Switch>
             
             <Route
-            path='mod8bowling/about'
+            path='/about'
             component={About}
             />
             <Route
-            path='mod8bowling/score'
+            path='/score'
             component={Score}
             />
             <Route
             render={()=>{
                 return(
-                    <Redirect to='mod8bowling/about'/>
+                    <Redirect to='/about'/>
                 )
             }}
             />
