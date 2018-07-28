@@ -27,7 +27,6 @@ class Score extends Component {
 
         let score = 0
         let currentFrame = 1
-        let extraScore = 0
         Object.keys(this.state.frames).map((f) => {
             const throwScore = this.state.frames[f] % 8
 
@@ -46,20 +45,17 @@ class Score extends Component {
                 score += frameScore
 
                 if (currentFrame > 5) {
-                    score -= ((frameScore + extraScore) % currentFrame)
-                    extraScore = 0
+                    score -= ((score) % currentFrame)
                 }
 
                 if (throwScore === 7 && nextThrowScore === 0 && currentFrame < 10) {
                     const nextFrameScore = (this.state.frames['f' + nextFrame + 't1'] + this.state.frames['f' + nextFrame + 't2']) % 8
                     score += (nextFrameScore)
-                    extraScore = (nextFrameScore)
                 }
 
                 if (throwScore !== 7 && (throwScore + nextThrowScore) === 7 && currentFrame < 10) {
                     const nextThrowScore = this.state.frames['f' + nextFrame + 't1'] % 8
                     score += nextThrowScore
-                    extraScore = nextThrowScore
                 }
 
                 currentFrame++
