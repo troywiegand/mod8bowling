@@ -16,7 +16,7 @@ class About extends Component {
         
         <br />
         <p> If you would like to calculate your score:
-           <NavLink to={"/score"}>  
+           <NavLink to={"mod8bowling/score"}>  
              Click Here 
             </NavLink>
         </p>

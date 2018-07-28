@@ -5,27 +5,23 @@ import About from './About'
 import Score from './Score'
 
 class App extends Component {
-constructor()
-{
-super()
-}
 
 render(){
     return(
         <Switch>
             
             <Route
-            path='/about'
+            path='mod8bowling/about'
             component={About}
             />
             <Route
-            path='/score'
+            path='mod8bowling/score'
             component={Score}
             />
             <Route
             render={()=>{
                 return(
-                    <Redirect to='/about'/>
+                    <Redirect to='mod8bowling/about'/>
                 )
             }}
             />
