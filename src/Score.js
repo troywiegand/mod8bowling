@@ -115,7 +115,8 @@ class Score extends Component {
                         <form onSubmit={this.handleNameSubmit}>
                         <input type="text" label="Player Name" 
                         value={this.state.playerName}
-                        onChange={this.handleNameChange}/>
+                        onChange={this.handleNameChange}
+                        placeholder='Enter Player Name...'/>
                         </form>
                         <table width="50%" border="0" cellSpacing="0" cellPadding="0">
                             <tbody>
