@@ -68,12 +68,10 @@ class Score extends Component {
     render() {
         return (
             <div className="About">
-                <center><h1>mod 8 bowling</h1>
-                    <p>
-                        Enter in your score
-      </p>
-
+               <center>
                     <form>
+                        <h2>Player {this.props.playerNumber}</h2>
+                        <input type="text" label="Player Name" />
                         <h3>Frame 1</h3>
                         <input name="f1t1" type="number"
                             onChange={this.handleChange}

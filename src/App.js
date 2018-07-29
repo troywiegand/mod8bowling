@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Route , Switch, Redirect} from 'react-router-dom'
 
 import About from './About'
-import Score from './Score'
+import ScoreSetup from './ScoreSetup'
 
 class App extends Component {
 
@@ -16,7 +16,7 @@ render(){
             />
             <Route
             path='/score'
-            component={Score}
+            component={ScoreSetup}
             />
             <Route
             render={()=>{
