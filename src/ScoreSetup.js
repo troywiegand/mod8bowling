@@ -35,14 +35,18 @@ class ScoreSetup extends Component {
         if (this.state.displayForm) {
             return (
                 < div>
+                <center>
+                         <h1>mod 8 bowling</h1>
 
+                         <br />
+                        <h2> How many players?</h2>
                     <form onSubmit={this.handleSubmit}>
                         <input label="How many players?"
                         min="1"
                             type="number" onChange={this.handleChange}
                             value={this.state.number} />
-                        <button type="submit" />
                     </form>
+                    </center>
                 </div>
             )
         }
