@@ -2,8 +2,13 @@ import React, { Component } from 'react';
 
 class Score extends Component {
 
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
+        let styles = {
+            color: this.props.playerNumber%2===1 ? 'white' : 'black',
+            backgroundColor: this.props.playerNumber%2===1 ? 'blue' : 'grey'
+        }
+
         this.state = {
             score: 0,
             frames: {
@@ -13,8 +18,11 @@ class Score extends Component {
                 f10t1: null, f10t2: null, f10t3: null,
             },
             playerName: null,
-            renderNameForm: true
+            renderNameForm: true,
+            styles
         }
+
+
     }
 
     handleChange = (ev) => {
@@ -49,10 +57,6 @@ class Score extends Component {
                 const frameScore = (this.state.frames[f] + this.state.frames[nextThrowName]) % 8
                 score += frameScore
 
-                if (currentFrame === 5) {
-                    if(this.state.frames['f5t1']||this.state.frames['f5t2'])
-                    score -= ((score) % currentFrame)
-                }
 
                 if (currentFrame === 6) {
                     if(this.state.frames['f6t1']||this.state.frames['f6t2'])
@@ -108,7 +112,7 @@ class Score extends Component {
     render() {
         if(this.state.renderNameForm){
         return (
-            <div className="About">
+            <div className="About" style={this.state.styles}>
                 <center>
                     <form>
                         <h2>Player {this.props.playerNumber}</h2>
@@ -118,7 +122,7 @@ class Score extends Component {
                         onChange={this.handleNameChange}
                         placeholder='Enter Player Name...'/>
                         </form>
-                        <table width="50%" border="0" cellSpacing="0" cellPadding="0">
+                        <table >
                             <tbody>
                             <tr>
                                 <th className="frameTitle" colSpan='2'>1</th>
@@ -258,7 +262,7 @@ class Score extends Component {
         );}
         else{
             return (
-                <div className="About">
+                <div className="About" style={this.state.styles}>
                     <center>
                         <form>
                             <h2>{this.state.playerName}</h2>
@@ -402,7 +406,6 @@ class Score extends Component {
             );
         }
     }
-
 
 }
 
