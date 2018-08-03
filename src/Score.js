@@ -17,7 +17,7 @@ class Score extends Component {
                 f7t1: null, f7t2: null, f8t1: null, f8t2: null, f9t1: null, f9t2: null,
                 f10t1: null, f10t2: null, f10t3: null,
             },
-            playerName: null,
+            playerName: ' ',
             renderNameForm: true,
             styles
         }
@@ -48,12 +48,15 @@ class Score extends Component {
 
             const nextThrowScore = this.state.frames[nextThrowName] % 8
 
-            if(throwScore+nextThrowScore>10)
-            alert('You could only have hit a total of 10 pins!!')
 
             const nextFrame = (currentFrame + 1).toString()
 
             if (f.slice(3).includes('1')) {
+                
+            if(throwScore+nextThrowScore>10){
+                debugger
+            alert('You could only have hit a total of 10 pins!!')
+            }
                 const frameScore = (this.state.frames[f] + this.state.frames[nextThrowName]) % 8
                 score += frameScore
 
@@ -114,14 +117,14 @@ class Score extends Component {
         return (
             <div className="About" style={this.state.styles}>
                 <center>
-                    <form>
-                        <h2>Player {this.props.playerNumber}</h2>
+                <h2>Player {this.props.playerNumber}</h2>
                         <form onSubmit={this.handleNameSubmit}>
                         <input type="text" label="Player Name" 
                         value={this.state.playerName}
                         onChange={this.handleNameChange}
                         placeholder='Enter Player Name...'/>
                         </form>
+                    <form>
                         <table >
                             <tbody>
                             <tr>
